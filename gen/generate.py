@@ -8,13 +8,16 @@ from utils import *
 
 def gen_time_series(dim: int, num_cycles: int, noise: float, 
                     carno_params: CarnoParams = DEFAULT_CARNO,
-                    ellipse_params: EllipseParams = DEFAULT_ELLIPSE) \
+                    ellipse_params: EllipseParams = DEFAULT_ELLIPSE,
+                    na=None, nb=None) \
             -> np.ndarray:
     # возвращает сгенерировнный временной ряд из наблюдений 
     # массив [N, k], N -- число измерений, k -- число датчиков (k=dim*2)
 
-    na = np.random.uniform(-5, 12, size=(dim, dim))
-    nb = np.random.uniform(-5, 5, size=na.shape) + 5 * np.ones(na.shape)
+    if na is None:
+        na = np.random.uniform(-5, 12, size=(dim, dim))
+    if nb is None:
+        nb = np.random.uniform(-5, 5, size=na.shape) + 5 * np.ones(na.shape)
 
     sys = System(na, nb)
 
