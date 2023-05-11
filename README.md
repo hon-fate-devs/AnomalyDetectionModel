@@ -6,10 +6,15 @@ This is a small modification of generator from https://github.com/polytech-lectu
 
 ## App structure
 
+ - time series generator (defined in `gen/generate.py`)
  - sample producer (defined in `producer.py`)
  - sample consumer (defined in `consumer.py`)
  - Kafka message broker (in Docker containers)
  - docker compose to bring up Kafka and producer together
+
+## Time series generator
+
+Generator allows to create N time series cycles with specified params. Read more in data generating strategy manual.
 
 ## Message format
 

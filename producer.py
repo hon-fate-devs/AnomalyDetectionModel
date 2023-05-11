@@ -7,6 +7,8 @@ from time import time, sleep
 from kafka import KafkaProducer
 from dataclasses import dataclass, asdict
 from gen.generate import gen_time_series
+from gen.System import System
+import numpy as np
 
 
 @dataclass
@@ -35,11 +37,12 @@ noise = 0.3
 # other params by default
 # generate matrices
 a = np.random.uniform(-5, 12, size=(dim, dim))
-b = np.random.uniform(-5, 5, size=na.shape) + 5 * np.ones(na.shape)
+b = np.random.uniform(-5, 5, size=a.shape) + 5 * np.ones(a.shape)
+sys = System
 # end section of params 
 
 while True:
-    cycle = gen_time_series(dim, 1, noise, na=a, nb=b).reshape(-1)
+    cycle = gen_time_series(dim, 1, noise, sys=sys).reshape(-1)
     for vector_observ in cycle:
         for tag_id, value in zip(tag_list, vector_observ):
             dp = DataPoint(tag_id, int(time()), value)
