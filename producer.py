@@ -42,7 +42,7 @@ sys = System(a, b)
 # end section of params 
 
 while True:
-    cycle = gen_time_series(dim, 1, noise, sys=sys).reshape(-1)
+    cycle = gen_time_series(dim, 1, noise, sys=sys)
     for vector_observ in cycle:
         for tag_id, value in zip(tag_list, vector_observ):
             dp = DataPoint(tag_id, int(time()), value)
