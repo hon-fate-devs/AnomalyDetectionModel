@@ -1,0 +1,8 @@
+docker-compose.yml
+.git
+.gitignore
+.vscode
+producer.Dockerfile
+README.md
+consumer.py
+datapoint.avsc

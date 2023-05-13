@@ -1,9 +1,15 @@
 FROM python:3.10-alpine
-LABEL authors="nicolay"
+LABEL authors="hon-fate-devs"
 
-COPY producer.py .
+WORKDIR /app
+
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+
+RUN apk --no-cache add musl-dev linux-headers g++ && \
+    pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+COPY . .
 
 ENTRYPOINT ["python", "./producer.py"]
 
