@@ -1,8 +1,7 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from typing import *
-from System import *
-from utils import *
+from .System import *
+from .utils import *
 
 
 def gen_time_series(dim: int, num_cycles: int, noise: float, 

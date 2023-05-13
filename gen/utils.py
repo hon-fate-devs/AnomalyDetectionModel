@@ -1,8 +1,7 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from typing import *
 from dataclasses import dataclass
-from System import System
+from .System import System
 
 
 def gen_points_ellipse(r1, r2, right_point: np.ndarray, num_points):
