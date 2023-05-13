@@ -38,7 +38,7 @@ noise = 0.3
 # generate matrices
 a = np.random.uniform(-5, 12, size=(dim, dim))
 b = np.random.uniform(-5, 5, size=a.shape) + 5 * np.ones(a.shape)
-sys = System
+sys = System(a, b)
 # end section of params 
 
 while True:
